@@ -1,15 +1,18 @@
-package com;
-
 import com.config.SpringConfig;
 import com.dao.UserDao;
+import com.domain.User;
+import com.mapper.UserMapper;
+import com.sevice.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 public class ConfigTest {
     public static void main(String[] args) {
-        ApplicationContext context=new AnnotationConfigApplicationContext(SpringConfig.class);
-        UserDao bean = context.getBean(UserDao.class);
-        bean.show();
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        UserService userService = context.getBean(UserService.class);
+        userService.show();
     }
 }

@@ -20,3 +20,15 @@
 @PropertySource("classpath:jdbc.properties")
 
 ApplicationContext context=new AnnotationConfigApplicationContext(SpringConfig.class);
+
+
+可以@Import其他bean
+
+无法自动装配。找不到 'UserMapper' 类型的 Bean。
+解决：在mapper上加上注解@Mapper与@Repository
+
+public interface UserMapper {
+@Select("select * from login")
+List<User> findAll();
+}
+也可以这样，就不需要mapper.xml文件了
