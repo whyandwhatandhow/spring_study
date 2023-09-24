@@ -32,3 +32,18 @@ public interface UserMapper {
 List<User> findAll();
 }
 也可以这样，就不需要mapper.xml文件了
+
+
+
+AOP
+面向切面编程:动态代理技术，增强方法的
+
+@Transactional(isolation = Isolation.READ_COMMITTED,propagation = Propagation.REQUIRED)
+事务控制
+@EnableTransactionManagement
+@Bean
+public DataSourceTransactionManager dataSourceTransactionManager(DataSource dataSource){
+DataSourceTransactionManager dataSourceTransactionManager=new DataSourceTransactionManager();
+dataSourceTransactionManager.setDataSource(dataSource);
+return dataSourceTransactionManager;
+}
